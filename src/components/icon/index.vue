@@ -7,24 +7,24 @@ export default defineComponent({
     props: {
         name: {
             type: String,
-            required: true,
+            required: true
         },
         size: {
             type: String,
-            default: '18px',
+            default: '18px'
         },
         color: {
             type: String,
-            default: '#000000',
-        },
+            default: '#000000'
+        }
     },
     setup(props) {
         const iconStyle = computed((): CSSProperties => {
             const { size, color } = props
-            let s = `${size.replace('px', '')}px`
+            const s = `${size.replace('px', '')}px`
             return {
                 fontSize: s,
-                color: color,
+                color: color
             }
         })
 
@@ -35,6 +35,6 @@ export default defineComponent({
         } else {
             return () => createVNode('i', { class: [props.name, 'icon'], style: iconStyle.value })
         }
-    },
+    }
 })
 </script>

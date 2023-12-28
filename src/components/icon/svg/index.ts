@@ -12,7 +12,7 @@ const clearFill = /(fill="[^>+].*?")/g
 function findSvgFile(dir: string): string[] {
     const svgRes = []
     const dirents = readdirSync(dir, {
-        withFileTypes: true,
+        withFileTypes: true
     })
     for (const dirent of dirents) {
         iconNames.push(`${idPerfix}-${dirent.name.replace('.svg', '')}`)
@@ -66,6 +66,6 @@ export const svgBuilder = (path: string, perfix = 'local') => {
                 `
             )
             /* eslint-enable */
-        },
+        }
     }
 }

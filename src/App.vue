@@ -15,7 +15,7 @@ const { getLocaleMessage } = useI18n()
 const lang = getLocaleMessage(config.lang.defaultLang) as any
 onMounted(() => {
     iconfontInit()
-    
+
     // Modules onMounted mark, Please do not remove.
 })
 

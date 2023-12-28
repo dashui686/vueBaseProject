@@ -5,7 +5,6 @@ import { STORE_CONFIG } from './constant/cacheKey'
 export const useConfig = defineStore(
     'config',
     () => {
-
         const lang = reactive({
             // 默认语言，可选值<zh-cn|en>
             defaultLang: 'zh-cn',
@@ -14,8 +13,8 @@ export const useConfig = defineStore(
             // 支持的语言列表
             langArray: [
                 { name: 'zh-cn', value: '中文简体' },
-                { name: 'en', value: 'English' },
-            ],
+                { name: 'en', value: 'English' }
+            ]
         })
         function setLang(val: string) {
             lang.defaultLang = val
@@ -24,7 +23,7 @@ export const useConfig = defineStore(
     },
     {
         persist: {
-            key: STORE_CONFIG,
-        },
+            key: STORE_CONFIG
+        }
     }
 )

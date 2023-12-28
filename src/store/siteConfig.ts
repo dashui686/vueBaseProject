@@ -14,11 +14,11 @@ export const useSiteConfig = defineStore('siteConfig', {
                 mode: 'local',
                 maxsize: 0,
                 mimetype: '',
-                savename: '',
+                savename: ''
             },
             headNav: [],
             initialize: false,
-            userInitialize: false,
+            userInitialize: false
         }
     },
     actions: {
@@ -33,6 +33,6 @@ export const useSiteConfig = defineStore('siteConfig', {
         },
         setUserInitialize(userInitialize: boolean) {
             this.userInitialize = userInitialize
-        },
-    },
+        }
+    }
 })

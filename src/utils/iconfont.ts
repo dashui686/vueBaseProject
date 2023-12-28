@@ -48,7 +48,7 @@ function getStylesFromDomain(domain: string) {
 function getStylesFromVite(devId: string) {
     const sheets = []
     const styles: StyleSheetList = document.styleSheets
-    if (import.meta.env.MODE == 'production') {
+    if (import.meta.env.MODE === 'production') {
         const url = getUrl()
         for (const key in styles) {
             if (styles[key].href && styles[key].href?.indexOf(url) === 0) {

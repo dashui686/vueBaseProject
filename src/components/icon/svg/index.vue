@@ -17,7 +17,7 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
     name: '',
     size: '18px',
-    color: '#000000',
+    color: '#000000'
 })
 
 const s = `${props.size.replace('px', '')}px`
@@ -25,7 +25,7 @@ const iconName = computed(() => `#${props.name}`)
 const iconStyle = computed((): CSSProperties => {
     return {
         color: props.color,
-        fontSize: s,
+        fontSize: s
     }
 })
 const isUrl = computed(() => isExternal(props.name))
@@ -34,7 +34,7 @@ const urlIconStyle = computed(() => {
         width: s,
         height: s,
         mask: `url(${props.name}) no-repeat 50% 50%`,
-        '-webkit-mask': `url(${props.name}) no-repeat 50% 50%`,
+        '-webkit-mask': `url(${props.name}) no-repeat 50% 50%`
     }
 })
 </script>

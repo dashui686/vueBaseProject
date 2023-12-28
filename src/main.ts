@@ -1,12 +1,11 @@
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
-//routes
-import router from "./routes";
-//pinia
-import pinia from '@/store' 
-import { loadLang } from './lang';
-
+// routes
+import router from './routes'
+// pinia
+import pinia from '@/store'
+import { loadLang } from './lang'
 
 // vue
 const app = createApp(App)

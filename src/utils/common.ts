@@ -9,11 +9,9 @@ import { useTitle } from '@vueuse/core'
 import { i18n } from '../lang'
 import { getUrl } from './axios'
 
-import { trim, trimStart } from 'lodash-es'
+import { trimStart } from 'lodash-es'
 import type { TranslateOptions } from 'vue-i18n'
 import { useSiteConfig } from '@/store/siteConfig'
-
-
 
 export function registerIcons(app: App) {
     /*
@@ -58,7 +56,7 @@ export function loadJs(url: string): void {
  * 根据路由 meta.title 设置浏览器标题
  */
 export function setTitleFromRoute() {
-    if (typeof router.currentRoute.value.meta.title != 'string') {
+    if (typeof router.currentRoute.value.meta.title !== 'string') {
         return
     }
     nextTick(() => {
@@ -116,7 +114,7 @@ export const debounce = (fn: Function, ms: number) => {
  */
 export const getArrayKey = (arr: any, pk: string, value: any): any => {
     for (const key in arr) {
-        if (arr[key][pk] == value) {
+        if (arr[key][pk] === value) {
             return key
         }
     }
@@ -137,12 +135,12 @@ export const onResetForm = (formEl: FormInstance | undefined) => {
  * @param data
  */
 export const buildJsonToElTreeData = (data: any): ElTreeData[] => {
-    if (typeof data == 'object') {
+    if (typeof data === 'object') {
         const childrens = []
         for (const key in data) {
             childrens.push({
                 label: key + ': ' + data[key],
-                children: buildJsonToElTreeData(data[key]),
+                children: buildJsonToElTreeData(data[key])
             })
         }
         return childrens
@@ -222,7 +220,7 @@ export const fullUrl = (relativeUrl: string, domain = '') => {
  */
 export const getCurrentRoutePath = () => {
     let path = router.currentRoute.value.path
-    if (path == '/') path = trimStart(window.location.hash, '#')
+    if (path === '/') path = trimStart(window.location.hash, '#')
     if (path.indexOf('?') !== -1) path = path.replace(/\?.*/, '')
     return path
 }
@@ -278,7 +276,7 @@ export const checkFileMimetype = (fileName: string, fileType: string) => {
  */
 export const arrayFullUrl = (relativeUrls: string | string[], domain = '') => {
     if (typeof relativeUrls === 'string') {
-        relativeUrls = relativeUrls == '' ? [] : relativeUrls.split(',')
+        relativeUrls = relativeUrls === '' ? [] : relativeUrls.split(',')
     }
     for (const key in relativeUrls) {
         relativeUrls[key] = fullUrl(relativeUrls[key], domain)
@@ -292,7 +290,7 @@ export const arrayFullUrl = (relativeUrls: string | string[], domain = '') => {
  * @param fmt 格式化方式，默认：yyyy-mm-dd hh:MM:ss
  */
 export const timeFormat = (dateTime: string | number | null = null, fmt = 'yyyy-mm-dd hh:MM:ss') => {
-    if (dateTime == 'none') return i18n.global.t('None')
+    if (dateTime === 'none') return i18n.global.t('None')
     if (!dateTime) dateTime = Number(new Date())
     if (dateTime.toString().length === 10) {
         dateTime = +dateTime * 1000
@@ -306,12 +304,12 @@ export const timeFormat = (dateTime: string | number | null = null, fmt = 'yyyy-
         'd+': date.getDate().toString(), // 日
         'h+': date.getHours().toString(), // 时
         'M+': date.getMinutes().toString(), // 分
-        's+': date.getSeconds().toString(), // 秒
+        's+': date.getSeconds().toString() // 秒
     }
     for (const k in opt) {
         ret = new RegExp('(' + k + ')').exec(fmt)
         if (ret) {
-            fmt = fmt.replace(ret[1], ret[1].length == 1 ? opt[k] : padStart(opt[k], ret[1].length, '0'))
+            fmt = fmt.replace(ret[1], ret[1].length === 1 ? opt[k] : padStart(opt[k], ret[1].length, '0'))
         }
     }
     return fmt

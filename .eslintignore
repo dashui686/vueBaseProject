@@ -7,3 +7,8 @@ public
 # 忽略lib目录
 /lib
 
+
+
+.eslintrc.cjs
+.prettierrc.cjs
+.stylelintrc.cjs
