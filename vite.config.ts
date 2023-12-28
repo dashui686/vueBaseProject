@@ -1,4 +1,4 @@
-import { defineConfig, loadEnv } from 'vite'
+import { ProxyOptions, defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 // 配置@别名
 import { resolve } from "path";
@@ -20,7 +20,7 @@ const pathResolve = (dir: string): any => {
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode, isSsrBuild, isPreview }) =>{
 
-  const { VITE_PORT, VITE_OPEN, VITE_BASE_PATH, VITE_OUT_DIR, VITE_PROXY_URL } = loadEnv(mode, process.cwd())
+  const { VITE_PORT, VITE_OPEN, VITE_BASE_PATH, VITE_OUT_DIR, VITE_PROXY_URL,VITE_BASE_API } = loadEnv(mode, process.cwd())
 
   // 忽略后缀 ['.ts', '.js', '.mjs', '.jsx', '.tsx', '.json','.vue']
   const extensions = ['.ts', '.js', '.mjs', '.jsx', '.tsx', '.json','.vue']
@@ -29,7 +29,25 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) =>{
     "@": resolve(__dirname, "./src"),
     assets: pathResolve('./src/assets'),
     'vue-i18n': isProd(mode) ? 'vue-i18n/dist/vue-i18n.cjs.prod.js' : 'vue-i18n/dist/vue-i18n.cjs.js',
-}
+  }
+
+  let proxy: Record<string, string | ProxyOptions> = {}
+  if (VITE_PROXY_URL) {
+    proxy = {
+      VITE_BASE_API: { // 匹配请求路径，
+          target: VITE_PROXY_URL, // 代理的目标地址
+            // 开发模式，默认的127.0.0.1,开启后代理服务会把origin修改为目标地址
+          changeOrigin: true,
+          // secure: true, // 是否https接口
+          // ws: true, // 是否代理websockets
+  
+          // 路径重写，**** 如果你的后端有统一前缀(如:/api)，就不开启；没有就开启
+          //简单来说，就是是否改路径 加某些东西
+          rewrite: (path) => path.replace(`/^\/`+ VITE_BASE_API +`/`, '') 
+      }
+    }
+  }
+ 
 
   return {
     root: process.cwd(),
@@ -60,21 +78,8 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) =>{
       extensions
     },
     server: {
-      open: VITE_OPEN != 'false',
-      port: parseInt(VITE_PORT),
-      proxy: {
-          '/api': { // 匹配请求路径，
-              target: '你要代理的地址', // 代理的目标地址
-                // 开发模式，默认的127.0.0.1,开启后代理服务会把origin修改为目标地址
-              changeOrigin: true,
-              // secure: true, // 是否https接口
-              // ws: true, // 是否代理websockets
-
-              // 路径重写，**** 如果你的后端有统一前缀(如:/api)，就不开启；没有就开启
-              //简单来说，就是是否改路径 加某些东西
-              rewrite: (path) => path.replace(/^\/api/, '') 
-          }
-      }
+      open: VITE_OPEN !== 'false',
+      port: parseInt(VITE_PORT)
     },
     build: {
       cssCodeSplit: false,
