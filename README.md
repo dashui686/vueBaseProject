@@ -2,6 +2,35 @@
 vue初始化项目 VUE+TS+PINIA
 Element-plus
 
+依赖
+"dependencies": {
+   "@types/node": "^20.10.5",
+   "axios": "^1.6.2",
+   "element-plus": "^2.4.4",
+   "eslint-config-prettier": "^9.1.0",
+   "js-cookie": "^3.0.5",
+   "pinia": "^2.1.7",
+   "pinia-plugin-persistedstate": "^3.2.1",
+   "sass": "^1.69.5",
+   "vue": "^3.3.11",
+   "vue-i18n": "^9.8.0",
+   "vue-router": "4"
+},
+"devDependencies": {
+   "@typescript-eslint/eslint-plugin": "^6.16.0",
+   "@typescript-eslint/parser": "^6.16.0",
+   "@vitejs/plugin-vue": "^4.5.2",
+   "eslint": "^8.56.0",
+   "eslint-plugin-vue": "^9.19.2",
+   "less": "^4.2.0",
+   "scss": "^0.2.4",
+   "typescript": "^5.3.3",
+   "typescript-eslint-parser": "^22.0.0",
+   "unplugin-auto-import": "^0.17.2",
+   "unplugin-vue-components": "^0.26.0",
+   "vite": "^5.0.10",
+   "vue-tsc": "^1.8.25"
+}, 
 
 
 
