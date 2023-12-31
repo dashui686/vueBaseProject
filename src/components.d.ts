@@ -7,11 +7,11 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
-    HelloWorld: typeof import('./components/HelloWorld.vue')['default']
-    Icon: typeof import('./components/icon/index.vue')['default']
-    RouterLink: typeof import('vue-router')['RouterLink']
-    RouterView: typeof import('vue-router')['RouterView']
-    Svg: typeof import('./components/icon/svg/index.vue')['default']
+    ElConfigProvider: (typeof import('element-plus/es'))['ElConfigProvider']
+    HelloWorld: (typeof import('./components/HelloWorld.vue'))['default']
+    Icon: (typeof import('./components/icon/index.vue'))['default']
+    RouterLink: (typeof import('vue-router'))['RouterLink']
+    RouterView: (typeof import('vue-router'))['RouterView']
+    Svg: (typeof import('./components/icon/svg/index.vue'))['default']
   }
 }

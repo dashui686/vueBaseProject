@@ -10,6 +10,8 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { isProd } from './src/utils/vite'
 
+import eslintPlugin from 'vite-plugin-eslint'
+
 const pathResolve = (dir: string): any => {
   // eslint-disable-next-line no-undef
   return resolve(__dirname, '.', dir)
@@ -27,23 +29,24 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
     // eslint-disable-next-line no-undef
     '@': resolve(__dirname, './src'),
     assets: pathResolve('./src/assets'),
-    'vue-i18n': isProd(mode) ? 'vue-i18n/dist/vue-i18n.cjs.prod.js' : 'vue-i18n/dist/vue-i18n.cjs.js'
+    'vue-i18n': isProd(mode) ? 'vue-i18n/dist/vue-i18n.cjs.prod.js' : 'vue-i18n/dist/vue-i18n.cjs.js',
   }
 
   let proxy: Record<string, string | ProxyOptions> = {}
   if (VITE_PROXY_URL) {
     proxy = {
-      VITE_BASE_API: { // 匹配请求路径，
-          target: VITE_PROXY_URL, // 代理的目标地址
-            // 开发模式，默认的127.0.0.1,开启后代理服务会把origin修改为目标地址
-          changeOrigin: true,
-          // secure: true, // 是否https接口
-          // ws: true, // 是否代理websockets
+      VITE_BASE_API: {
+        // 匹配请求路径，
+        target: VITE_PROXY_URL, // 代理的目标地址
+        // 开发模式，默认的127.0.0.1,开启后代理服务会把origin修改为目标地址
+        changeOrigin: true,
+        // secure: true, // 是否https接口
+        // ws: true, // 是否代理websockets
 
-          // 路径重写，**** 如果你的后端有统一前缀(如:/api)，就不开启；没有就开启
-          // 简单来说，就是是否改路径 加某些东西
-          rewrite: (path) => path.replace(`/^\/` + VITE_BASE_API + `/`, '')
-      }
+        // 路径重写，**** 如果你的后端有统一前缀(如:/api)，就不开启；没有就开启
+        // 简单来说，就是是否改路径 加某些东西
+        rewrite: (path) => path.replace(`/^\/` + VITE_BASE_API + `/`, ''),
+      },
     }
   }
 
@@ -53,32 +56,34 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
     base: VITE_BASE_PATH,
     plugins: [
       vue(),
+      eslintPlugin({
+        // 配置
+        cache: false, // 禁用 eslint 缓存
+      }),
       AutoImport({
         // 安装两行后你会发现在组件中不用再导入ref，reactive等
         imports: ['vue', 'vue-router'],
-              // 存放的位置
+        // 存放的位置
         dts: 'src/auto-import.d.ts',
         // element
-        resolvers: [ElementPlusResolver()]
+        resolvers: [ElementPlusResolver()],
       }),
       Components({
         // 引入组件的,包括自定义组件
         // 存放的位置
         dts: 'src/components.d.ts',
-        resolvers: [
-          ElementPlusResolver()
-        ]
-      })
+        resolvers: [ElementPlusResolver()],
+      }),
     ],
     // ↓解析配置
     resolve: {
       // ↓路径别名
       alias,
-      extensions
+      extensions,
     },
     server: {
       open: VITE_OPEN !== 'false',
-      port: parseInt(VITE_PORT)
+      port: parseInt(VITE_PORT),
     },
     build: {
       cssCodeSplit: false,
@@ -87,14 +92,14 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
       emptyOutDir: true,
       chunkSizeWarningLimit: 1500,
       rollupOptions: {
-          output: {
-              manualChunks: {
-                  // 分包配置，配置完成自动按需加载
-                  vue: ['vue', 'vue-router', 'pinia', 'vue-i18n', 'element-plus']
-                  // echarts: ['echarts'],
-              }
-          }
-      }
-    }
+        output: {
+          manualChunks: {
+            // 分包配置，配置完成自动按需加载
+            vue: ['vue', 'vue-router', 'pinia', 'vue-i18n', 'element-plus'],
+            // echarts: ['echarts'],
+          },
+        },
+      },
+    },
   }
 })

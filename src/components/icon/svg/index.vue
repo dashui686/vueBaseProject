@@ -1,8 +1,8 @@
 <template>
-    <div v-if="isUrl" :style="urlIconStyle" class="url-svg svg-icon icon" />
-    <svg v-else class="svg-icon icon" :style="iconStyle">
-        <use :href="iconName" />
-    </svg>
+  <div v-if="isUrl" :style="urlIconStyle" class="url-svg svg-icon icon" />
+  <svg v-else class="svg-icon icon" :style="iconStyle">
+    <use :href="iconName" />
+  </svg>
 </template>
 
 <script setup lang="ts">

@@ -1,11 +1,4 @@
-<script setup lang="ts">
-import HelloWorld from '../components/HelloWorld.vue'
-
-const a = 0
-console.log(a)
-
-</script>
-
+<script setup lang="ts"></script>
 <template>
   <div>
     <a href="https://vitejs.dev" target="_blank">

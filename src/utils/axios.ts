@@ -7,7 +7,7 @@ window.requests = []
 const pendingMap = new Map()
 const loadingInstance: LoadingInstance = {
   target: null,
-  count: 0
+  count: 0,
 }
 
 /**
@@ -36,9 +36,9 @@ function createAxios<Data = any, T = ApiPromise<Data>>(axiosConfig: AxiosRequest
     baseURL: getUrl(),
     timeout: 1000 * 10,
     headers: {
-      server: true
+      server: true,
     },
-    responseType: 'json'
+    responseType: 'json',
   })
 
   options = Object.assign(
@@ -49,7 +49,7 @@ function createAxios<Data = any, T = ApiPromise<Data>>(axiosConfig: AxiosRequest
       showErrorMessage: true, // 是否开启接口错误信息展示,默认为true
       showCodeMessage: true, // 是否开启code不为1时的信息提示, 默认为true
       showSuccessMessage: false, // 是否开启code为1时的信息提示, 默认为false
-      anotherToken: undefined // 当前请求使用另外的用户token
+      anotherToken: undefined, // 当前请求使用另外的用户token
     },
     options
   )
@@ -69,8 +69,8 @@ function createAxios<Data = any, T = ApiPromise<Data>>(axiosConfig: AxiosRequest
 
       // 自动携带token
       if (config.headers) {
-        const token = getToken();
-        (config.headers as anyObj).Authorization = token
+        const token = getToken()
+        ;(config.headers as anyObj).Authorization = token
       }
 
       return config
@@ -88,13 +88,13 @@ function createAxios<Data = any, T = ApiPromise<Data>>(axiosConfig: AxiosRequest
 
       if (response.config.responseType === 'json') {
         if (response.data && response.data.code !== 200) {
-        //   if (response.data.code == 403) {
-        //   }
+          //   if (response.data.code == 403) {
+          //   }
           // if (options.showCodeMessage) {
           if (options.showCodeMessage) {
             ElNotification({
               type: 'error',
-              message: response.data.msg
+              message: response.data.msg,
             })
           }
           // 自动跳转到路由name或path
@@ -103,7 +103,6 @@ function createAxios<Data = any, T = ApiPromise<Data>>(axiosConfig: AxiosRequest
           }
           // 未登录
           if (response.data.code === 401) {
-
             // 需要登录，清理 token，转到登录页
             // if (response.data.data.type == 'need login') {
             //     if (isAdminAppFlag) {
@@ -122,7 +121,7 @@ function createAxios<Data = any, T = ApiPromise<Data>>(axiosConfig: AxiosRequest
         } else if (options.showSuccessMessage && response.data && response.data.code === 1) {
           ElNotification({
             message: response.data.msg ? response.data.msg : i18n.global.t('axios.Operation successful'),
-            type: 'success'
+            type: 'success',
           })
         }
       }
@@ -196,11 +195,13 @@ function httpErrorStatusHandle(error: any) {
     }
   }
   if (error.message.includes('timeout')) message = i18n.global.t('axios.Network request timeout!')
-  if (error.message.includes('Network')) { message = window.navigator.onLine ? i18n.global.t('axios.Server exception!') : i18n.global.t('axios.You are disconnected!') }
+  if (error.message.includes('Network')) {
+    message = window.navigator.onLine ? i18n.global.t('axios.Server exception!') : i18n.global.t('axios.You are disconnected!')
+  }
 
   ElNotification({
     type: 'error',
-    message
+    message,
   })
 }
 
@@ -221,12 +222,12 @@ function closeLoading(options: Options) {
 function addPending(config: AxiosRequestConfig) {
   const pendingKey = getPendingKey(config)
   config.cancelToken =
-        config.cancelToken ||
-        new axios.CancelToken((cancel) => {
-          if (!pendingMap.has(pendingKey)) {
-            pendingMap.set(pendingKey, cancel)
-          }
-        })
+    config.cancelToken ||
+    new axios.CancelToken((cancel) => {
+      if (!pendingMap.has(pendingKey)) {
+        pendingMap.set(pendingKey, cancel)
+      }
+    })
 }
 
 /**
@@ -254,7 +255,7 @@ function getPendingKey(config: AxiosRequestConfig) {
     headers && (headers as anyObj).Authorization ? (headers as anyObj).Authorization : '',
     headers && (headers as anyObj)['ba-user-token'] ? (headers as anyObj)['ba-user-token'] : '',
     JSON.stringify(params),
-    JSON.stringify(data)
+    JSON.stringify(data),
   ].join('&')
 }
 
@@ -264,34 +265,34 @@ function getPendingKey(config: AxiosRequestConfig) {
 export function requestPayload(method: Method, data: anyObj) {
   if (method === 'GET') {
     return {
-      params: data
+      params: data,
     }
   } else if (method === 'POST') {
     return {
-      data: data
+      data: data,
     }
   }
 }
 
 interface LoadingInstance {
-    target: any
-    count: number
+  target: any
+  count: number
 }
 interface Options {
-    // 是否开启取消重复请求, 默认为 true
-    CancelDuplicateRequest?: boolean
-    // 是否开启loading层效果, 默认为false
-    loading?: boolean
-    // 是否开启简洁的数据结构响应, 默认为true
-    reductDataFormat?: boolean
-    // 是否开启接口错误信息展示,默认为true
-    showErrorMessage?: boolean
-    // 是否开启code不为0时的信息提示, 默认为true
-    showCodeMessage?: boolean
-    // 是否开启code为0时的信息提示, 默认为false
-    showSuccessMessage?: boolean
-    // 当前请求使用另外的用户token
-    anotherToken?: string
+  // 是否开启取消重复请求, 默认为 true
+  CancelDuplicateRequest?: boolean
+  // 是否开启loading层效果, 默认为false
+  loading?: boolean
+  // 是否开启简洁的数据结构响应, 默认为true
+  reductDataFormat?: boolean
+  // 是否开启接口错误信息展示,默认为true
+  showErrorMessage?: boolean
+  // 是否开启code不为0时的信息提示, 默认为true
+  showCodeMessage?: boolean
+  // 是否开启code为0时的信息提示, 默认为false
+  showSuccessMessage?: boolean
+  // 当前请求使用另外的用户token
+  anotherToken?: string
 }
 
 /*

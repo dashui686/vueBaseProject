@@ -3,4 +3,3 @@
  */
 
 export const STORE_CONFIG = 'storeConfig'
-

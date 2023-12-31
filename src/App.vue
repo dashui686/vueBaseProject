@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { onMounted, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import iconfontInit from '@/utils/iconfont'
@@ -29,11 +29,9 @@ watch(
 </script>
 
 <template>
-    <el-config-provider :locale="lang">
-        <router-view></router-view>
-    </el-config-provider>
+  <el-config-provider :locale="lang">
+    <router-view></router-view>
+  </el-config-provider>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
