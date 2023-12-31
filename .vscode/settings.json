@@ -11,12 +11,12 @@
     "[vue]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "i18n-ally.localesPaths": ["src/lang/backend/","src/lang/frontend/","src/lang/common"], // 翻译文件路径 (自动生成) 相对于项目根目录的语言环境目录路径
+    "i18n-ally.localesPaths": ["src/lang"], // 翻译文件路径 (自动生成) 相对于项目根目录的语言环境目录路径
+    "i18n-ally.namespace": true, 
+    "i18n-ally.pathMatcher": "{locale?}/{namespaces?}.{ext}",
     // 如下须要手动配置
     "i18n-ally.keystyle": "nested", // 翻译路径格式 (翻译后变量格式 nested：嵌套式  flat:扁平式)
     "i18n-ally.sortKeys": true,
-    "i18n-ally.namespace": true,
-    "i18n-ally.pathMatcher": "{locale?}/{namespaces?}.{ext}",
     "i18n-ally.enabledParsers": ["json", "ts"], // 翻译文件可允许的格式，默认json
     "i18n-ally.sourceLanguage": "zh-cn", // 翻译源语言 (源文件) 根据此语言文件翻译其他语言文件的变量和内容
     "i18n-ally.displayLanguage": "zh-cn", // 显示语言 (显示文件/翻译文件)
