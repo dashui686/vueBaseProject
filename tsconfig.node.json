@@ -1,11 +1,4 @@
 {
-  "compilerOptions": {
-    "composite": true,
-    "skipLibCheck": true,
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true,
-    "allowImportingTsExtensions": false
-  },
-  "include": ["vite.config.ts"]
+  "compilerOptions": {},
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue","types/**.d.ts","vite.config.ts"],
 }
