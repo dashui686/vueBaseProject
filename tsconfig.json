@@ -25,6 +25,11 @@
     "esModuleInterop": true,
     "types": ["element-plus/global"],
 
+    // 这个设置决定了 TypeScript 是否应该强制要求对那些无法推断类型的变量进行显式的类型注解。当设置为 false 时，意味着 TypeScript 允许在类型无法被明确指定时使用 any 类型
+    "noImplicitAny": false,
+    // 是否允许 js 文件
+    "allowJs": true,
+
     // 配置@别名
     "baseUrl": "./",
     "paths": {
