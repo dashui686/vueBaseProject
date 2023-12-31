@@ -1,4 +1,6 @@
 {
-  "compilerOptions": {},
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue","types/**.d.ts","vite.config.ts"],
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+  }
 }
