@@ -135,7 +135,7 @@ export const onResetForm = (formEl: FormInstance | undefined) => {
  */
 export const buildJsonToElTreeData = (data: any): ElTreeData[] => {
   if (typeof data === 'object') {
-    const childrens = []
+    const childrens = <ElTreeData[]>[]
     for (const key in data) {
       childrens.push({
         label: key + ': ' + data[key],

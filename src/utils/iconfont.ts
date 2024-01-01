@@ -31,7 +31,7 @@ export default function init() {
  * 样式表未载入前无法获取
  */
 function getStylesFromDomain(domain: string) {
-  const sheets = []
+  const sheets = <anyObj[]>[]
   const styles: StyleSheetList = document.styleSheets
   for (const key in styles) {
     if (styles[key].href && (styles[key].href as string).indexOf(domain) > -1) {
@@ -46,7 +46,7 @@ function getStylesFromDomain(domain: string) {
  * @param devID style 标签的 viteDevId，只开发服务有
  */
 function getStylesFromVite(devId: string) {
-  const sheets = []
+  const sheets = <anyObj[]>[]
   const styles: StyleSheetList = document.styleSheets
   if (import.meta.env.MODE === 'production') {
     const url = getUrl()
@@ -95,7 +95,7 @@ export function getLocalIconfontNames() {
 export function getAwesomeIconfontNames() {
   return new Promise<string[]>((resolve, reject) => {
     nextTick(() => {
-      const iconfonts = []
+      const iconfonts = <string[]>[]
       const sheets = getStylesFromVite('font-awesome.min.css')
       for (const key in sheets) {
         const rules: any = sheets[key].cssRules
@@ -129,7 +129,7 @@ export function getAwesomeIconfontNames() {
 export function getIconfontNames() {
   return new Promise<string[]>((resolve, reject) => {
     nextTick(() => {
-      const iconfonts = []
+      const iconfonts = <string[]>[]
       const sheets = getStylesFromDomain('at.alicdn.com')
       for (const key in sheets) {
         const rules: any = sheets[key].cssRules
@@ -155,7 +155,7 @@ export function getIconfontNames() {
 export function getElementPlusIconfontNames() {
   return new Promise<string[]>((resolve, reject) => {
     nextTick(() => {
-      const iconfonts = []
+      const iconfonts = <string[]>[]
       const icons = elIcons as any
       for (const i in icons) {
         iconfonts.push(`el-icon-${icons[i].name}`)
