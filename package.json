@@ -30,6 +30,7 @@
     "element-plus": "^2.4.4",
     "eslint-config-prettier": "^9.1.0",
     "js-cookie": "^3.0.5",
+    "mitt": "^3.0.1",
     "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.1",
     "sass": "^1.69.5",
