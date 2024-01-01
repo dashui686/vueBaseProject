@@ -6,10 +6,11 @@ import router from './routes'
 // pinia
 import pinia from '@/store'
 import mitt from 'mitt'
+import plugins from './plugins' // plugins
 import { loadLang } from './lang'
 import ElementPlus from 'element-plus'
 import { useDict } from '@/utils/dict'
-import { parseTime, resetForm, addDateRange, handleTree, selectDictLabel, selectDictLabels } from '/@/utils/ruoyi'
+import { parseTime, resetForm, addDateRange, handleTree, selectDictLabel, selectDictLabels } from '@/utils/ruoyi'
 
 // vue
 const app = createApp(App)
@@ -19,6 +20,7 @@ const app = createApp(App)
 app.use(pinia)
 // 全局语言包加载
 await loadLang(app)
+app.use(plugins)
 app.use(router)
 app.use(ElementPlus)
 
