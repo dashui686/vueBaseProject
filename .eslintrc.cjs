@@ -23,6 +23,8 @@ module.exports = {
   ],
   'rules': {
 
+    // prettier  Delete `␍` prettier/prettier 错误
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
     // TypeScript 相关规则
     '@typescript-eslint/no-empty-function': 'off', // 允许空函数
     '@typescript-eslint/no-explicit-any': 'off', // 允许使用 any 类型
