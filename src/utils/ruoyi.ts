@@ -9,7 +9,7 @@ export function parseTime(time: any, pattern?: string) {
     return null
   }
   const format = pattern || '{y}-{m}-{d} {h}:{i}:{s}'
-  let date
+  let date: Date
   if (typeof time === 'object') {
     date = time
   } else {
@@ -50,7 +50,7 @@ export function parseTime(time: any, pattern?: string) {
 }
 
 // 表单重置
-export function resetForm(refName: string) {
+export function resetForm(this: any, refName: string) {
   if (this.$refs[refName]) {
     this.$refs[refName].resetFields()
   }
@@ -76,7 +76,7 @@ export function selectDictLabel(datas: any, value: any) {
   if (value === undefined) {
     return ''
   }
-  const actions = []
+  const actions = <anyObj[]>[]
   Object.keys(datas).some((key) => {
     if (datas[key].value === '' + value) {
       actions.push(datas[key].label)
@@ -172,7 +172,7 @@ export function handleTree(data: any, id: any, parentId?: any, children?: any) {
 
   const childrenListMap: any = {}
   const nodeIds: any = {}
-  const tree = []
+  const tree = <anyObj[]>[]
 
   for (const d of data) {
     const parentId = d[config.parentId]

@@ -181,7 +181,7 @@ module.exports = {
       'after': true
     }], // 分号前禁止空格，分号后必须有空格
     'space-before-blocks': [2, 'always'], // 代码块前要有空格
-    'space-before-function-paren': [2, 'never'], // 函数参数列表前不允许有空格
+    // 'space-before-function-paren': [2, 'never'], // 函数参数列表前不允许有空格
     'space-in-parens': [2, 'never'], // 圆括号内不允许有空格
     'space-infix-ops': 2, // 操作符周围要有空格
     'space-unary-ops': [2, {

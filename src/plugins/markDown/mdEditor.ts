@@ -1,12 +1,10 @@
 // v-md start
 
-
 // 编辑模式
-import VueMarkdownEditor from '@kangc/v-md-editor';
-import '@kangc/v-md-editor/lib/style/base-editor.css';
+import VueMarkdownEditor from '@kangc/v-md-editor'
+import '@kangc/v-md-editor/lib/style/base-editor.css'
 
-export default VueMarkdownEditor;
-
+export default VueMarkdownEditor
 
 // 方法
 // focus
@@ -59,7 +57,7 @@ export default VueMarkdownEditor;
 
 // 属性
 /*
-        <v-md-editor 
+        <v-md-editor
             // 宽度
             height="100%"
             // 制表符空格数
@@ -70,7 +68,7 @@ export default VueMarkdownEditor;
             :text="123213"
             // 双向绑定
             v-model="text"
-            // 模式。可选值：edit(纯编辑模式) editable(编辑与预览模式,默认值) preview(纯预览模式)。 
+            // 模式。可选值：edit(纯编辑模式) editable(编辑与预览模式,默认值) preview(纯预览模式)。
             mode="editable"
             // 目录导航是否在右侧。 true|false
             :toc-nav-position-right="true"
@@ -81,11 +79,11 @@ export default VueMarkdownEditor;
             // 是否默认开启全屏。 true|false
             default-fullscreen
             // 目录导航生成时包含的标题。默认包含 2 级、3 级标题。 [2, 3, 4.....]
-            include-level 
-            // 左侧工具栏 undo redo clear | h bold italic strikethrough quote | ul ol table hr | link image code | save 
+            include-level
+            // 左侧工具栏 undo redo clear | h bold italic strikethrough quote | ul ol table hr | link image code | save
             left-toolbar
             // 右侧工具栏 preview toc sync-scroll fullscreen
-            right-toolbar 
+            right-toolbar
             // 自定义工具栏配置，如下 值：Object
             toolbar
             // 内置 toolbar 的一些配置。 Object
@@ -101,10 +99,9 @@ export default VueMarkdownEditor;
             是否对 codemirror 编辑器的部分样式进行优化。若关闭，则会恢复 codemirror 编辑器默认的样式。 true | false
             codemirror-style-reset
         >
-        
+
         </v-md-editor>
 */
-
 
 // 左侧工具栏
 // undo 	    撤销
@@ -138,17 +135,17 @@ export default VueMarkdownEditor;
 //         action(editor) {
 //         // toolbar点击时触发的函数
 //              editor.insert(function (selected) { // selected 为当前选中的文本
-    //              const prefix = '(((';
-    //              const suffix = ')))';
-    //              const placeholder = '请输入文本';
-    //              const content = selected || placeholder;
+//              const prefix = '(((';
+//              const suffix = ')))';
+//              const placeholder = '请输入文本';
+//              const content = selected || placeholder;
 
-    //              return {
-    //                  // 要插入的文本
-    //                  text: `${prefix}${content}${suffix}`,
-    //                  // 插入后要选中的文本
-    //                  selected: content,
-    //              };
+//              return {
+//                  // 要插入的文本
+//                  text: `${prefix}${content}${suffix}`,
+//                  // 插入后要选中的文本
+//                  selected: content,
+//              };
 //              }
 //         },
 //     },
@@ -180,7 +177,6 @@ export default VueMarkdownEditor;
 //   },
 // },
 
-
 //  tool-config
 // {
 //     'image-link': {
@@ -190,9 +186,9 @@ export default VueMarkdownEditor;
 // }
 
 /**
- * 
- * 
- * 
+ *
+ *
+ *
  * 流程图用法
     ```mermaid
     graph LR
@@ -202,7 +198,3 @@ export default VueMarkdownEditor;
     ```
 
  */
-
-
-
-
