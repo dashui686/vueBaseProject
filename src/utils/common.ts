@@ -1,7 +1,7 @@
 import { nextTick } from 'vue'
 import type { App } from 'vue'
 import * as elIcons from '@element-plus/icons-vue'
-import router from '@/routes'
+import router from '@/routers'
 import Icon from '@/components/icon/index.vue'
 import type { FormInstance } from 'element-plus'
 import { useTitle } from '@vueuse/core'
