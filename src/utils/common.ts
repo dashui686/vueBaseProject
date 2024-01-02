@@ -10,7 +10,7 @@ import { getUrl } from './axios'
 
 import { trimStart } from 'lodash-es'
 import type { TranslateOptions } from 'vue-i18n'
-import { useSiteConfig } from '@/store/siteConfig'
+import { useSiteConfig } from '@/stores/siteConfig'
 
 export function registerIcons(app: App) {
   /*
@@ -174,6 +174,7 @@ export const getFileNameFromPath = (path: string) => {
  * 提供 string 将根据当前路由 path 自动拼接和鉴权，还可以提供路由的 name 对象进行鉴权
  * @param node
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
 export function auth(node: string | { name: string; subNodeName?: string }) {
   // const store = isAdminApp() ? useNavTabs() : useMemberCenter()
   // if (typeof node === 'string') {
@@ -230,6 +231,7 @@ export const getCurrentRoutePath = () => {
  * @param options — 其他翻译选项
  * @returns — Translated message
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
 export const __ = (key: string, named?: Record<string, unknown>, options?: TranslateOptions<string>) => {
   // let langPath = ''
   // const path = getCurrentRoutePath()

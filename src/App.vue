@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n'
 import iconfontInit from '@/utils/iconfont'
 import { useRoute } from 'vue-router'
 import { setTitleFromRoute } from '@/utils/common'
-import { useConfig } from '@/store/config'
+import { useConfig } from '@/stores/config'
 // modules import mark, Please do not remove.
 
 const config = useConfig()

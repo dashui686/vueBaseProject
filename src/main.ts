@@ -4,7 +4,7 @@ import App from './App.vue'
 // routes
 import router from './routers'
 // pinia
-import pinia from '@/store'
+import pinia from '@/stores'
 import mitt from 'mitt'
 import plugins from './plugins' // plugins
 import { loadLang } from './lang'

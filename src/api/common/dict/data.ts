@@ -1,4 +1,4 @@
-import request from '/@/utils/axios'
+import request from '@/utils/axios'
 
 // 查询字典数据列表
 export function listData(query: any) {
