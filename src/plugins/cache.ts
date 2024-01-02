@@ -1,4 +1,4 @@
-const sessionCache = {
+const sessionCache: Cache = {
   set(key: string, value: any) {
     if (!sessionStorage) {
       return
@@ -31,7 +31,8 @@ const sessionCache = {
     sessionStorage.removeItem(key)
   },
 }
-const localCache = {
+
+const localCache: Cache = {
   set(key: string, value: any) {
     if (!localStorage) {
       return
@@ -65,6 +66,13 @@ const localCache = {
   },
 }
 
+interface Cache {
+  set(key: string, value: any): void
+  get(key: string): any
+  setJSON(key: string, jsonValue: any): void
+  getJSON(key: string): any
+  remove(key: string): any
+}
 export default {
   /**
    * 会话级缓存
