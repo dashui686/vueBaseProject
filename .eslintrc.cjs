@@ -13,6 +13,14 @@ module.exports = {
     'plugin:prettier/recommended',
     './.eslintrc-auto-import.json',
   ],
+  overrides: [
+    {
+      files: ['*.ts', '*.vue'],
+      rules: {
+        'no-undef': 'off',
+      },
+    },
+  ],
   parserOptions: {
     ecmaVersion: 'latest',
     parser: '@typescript-eslint/parser',
