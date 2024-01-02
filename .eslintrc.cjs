@@ -1,30 +1,27 @@
 module.exports = {
   // "parser": "@typescript-eslint/parser",
-  "parser": "vue-eslint-parser",
-  'env': {
-    'browser': true,
-    'commonjs': true,
-    'es2021': true
+  parser: 'vue-eslint-parser',
+  env: {
+    browser: true,
+    commonjs: true,
+    es2021: true,
   },
-  'extends': [
+  extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:vue/vue3-essential',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
+    './.eslintrc-auto-import.json',
   ],
-  'parserOptions': {
-    'ecmaVersion': 'latest',
-    'parser': '@typescript-eslint/parser',
-    'sourceType': 'module'
+  parserOptions: {
+    ecmaVersion: 'latest',
+    parser: '@typescript-eslint/parser',
+    sourceType: 'module',
   },
-  'plugins': [
-    '@typescript-eslint',
-    'vue'
-  ],
-  'rules': {
-
+  plugins: ['@typescript-eslint', 'vue'],
+  rules: {
     // prettier  Delete `␍` prettier/prettier 错误
-    "prettier/prettier": ["error", { "endOfLine": "auto" }],
+    'prettier/prettier': ['error', { endOfLine: 'auto' }],
     // TypeScript 相关规则
     '@typescript-eslint/no-empty-function': 'off', // 允许空函数
     '@typescript-eslint/no-explicit-any': 'off', // 允许使用 any 类型
@@ -38,8 +35,8 @@ module.exports = {
       'warn',
       {
         argsIgnorePattern: '^_', // 允许使用未使用的参数，以 "_" 开头的参数不报警告
-        varsIgnorePattern: '^_' // 允许使用未使用的变量，以 "_" 开头的变量不报警告
-      }
+        varsIgnorePattern: '^_', // 允许使用未使用的变量，以 "_" 开头的变量不报警告
+      },
     ],
 
     // JavaScript 相关规则（非 TypeScript）
@@ -47,8 +44,8 @@ module.exports = {
       'warn',
       {
         argsIgnorePattern: '^_', // 允许使用未使用的参数，以 "_" 开头的参数不报警告
-        varsIgnorePattern: '^_' // 允许使用未使用的变量，以 "_" 开头的变量不报警告
-      }
+        varsIgnorePattern: '^_', // 允许使用未使用的变量，以 "_" 开头的变量不报警告
+      },
     ],
 
     // Vue 相关规则
@@ -81,10 +78,14 @@ module.exports = {
 
     // 通用规则
     // eslint（https://eslint.bootcss.com/docs/rules/）
-    'quotes': [2, 'single', {
-      'avoidEscape': true, // 允许字符串中的引号为单引号，除非需要转义
-      'allowTemplateLiterals': true // 允许字符串使用模板字面量
-    }],
+    quotes: [
+      2,
+      'single',
+      {
+        avoidEscape: true, // 允许字符串中的引号为单引号，除非需要转义
+        allowTemplateLiterals: true, // 允许字符串使用模板字面量
+      },
+    ],
     'no-var': 'error', // 要求使用 let 或 const 而不是 var
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-console': 'off', // 关闭 console 使用的强制规定
@@ -118,17 +119,23 @@ module.exports = {
     'no-irregular-whitespace': 2, // 禁止在字符串和注释之外不规则的空白
     'no-iterator': 2, // 禁止使用 __iterator__ 属性
     'no-label-var': 2, // 禁止变量名与父级作用域内的标签名相同
-    'no-labels': [2, {
-      'allowLoop': false, // 不允许在循环语句中使用标签
-      'allowSwitch': false // 不允许在 switch 语句中使用标签
-    }],
+    'no-labels': [
+      2,
+      {
+        allowLoop: false, // 不允许在循环语句中使用标签
+        allowSwitch: false, // 不允许在 switch 语句中使用标签
+      },
+    ],
     'no-lone-blocks': 2, // 禁止不必要的块嵌套
     'no-mixed-spaces-and-tabs': 2, // 禁止使用混合的空格和制表符缩进
     'no-multi-spaces': 2, // 禁止出现多个连续空格
     'no-multi-str': 2, // 禁止使用多行字符串
-    'no-multiple-empty-lines': [2, {
-      'max': 1 // 最多允许连续的空行数为 1
-    }],
+    'no-multiple-empty-lines': [
+      2,
+      {
+        max: 1, // 最多允许连续的空行数为 1
+      },
+    ],
     'no-native-reassign': 2, // 禁止对原生对象或只读的全局对象进行赋值
     'no-negated-in-lhs': 2, // 禁止在 in 表达式的左侧使用取反操作符
     'no-new-object': 2, // 禁止使用 Object 构造函数创建对象
@@ -155,9 +162,12 @@ module.exports = {
     // 'no-undef-init': 2, // 禁止将变量初始化为 undefined
     'no-unexpected-multiline': 2, // 禁止使用令人困惑的多行表达式
     'no-unmodified-loop-condition': 2, // 禁止循环中出现不变的条件
-    'no-unneeded-ternary': [2, {
-      'defaultAssignment': false // 禁止不必要的三元表达式
-    }],
+    'no-unneeded-ternary': [
+      2,
+      {
+        defaultAssignment: false, // 禁止不必要的三元表达式
+      },
+    ],
     'no-unreachable': 2, // 禁止在 return、throw、continue 和 break 语句之后出现不可达代码
     'no-unsafe-finally': 2, // 禁止在 finally 语句块中出现控制流语句，例如 return、throw、break 和 continue
     'no-useless-call': 2, // 禁止不必要的 call 和 apply
@@ -165,84 +175,130 @@ module.exports = {
     'no-useless-constructor': 2, // 禁止不必要的构造函数
     'no-whitespace-before-property': 2, // 禁止属性前有空白
     'no-with': 2, // 禁用 with 语句
-    'one-var': [2, {
-      'initialized': 'never' // 强制变量声明放在一起，但初始化可以分开
-    }],
-    'operator-linebreak': [2, 'after', {
-      'overrides': {
-        '?': 'before', // 三元表达式中问号前要换行
-        ':': 'before' // 三元表达式中冒号前要换行
-      }
-    }],
+    'one-var': [
+      2,
+      {
+        initialized: 'never', // 强制变量声明放在一起，但初始化可以分开
+      },
+    ],
+    'operator-linebreak': [
+      2,
+      'after',
+      {
+        overrides: {
+          '?': 'before', // 三元表达式中问号前要换行
+          ':': 'before', // 三元表达式中冒号前要换行
+        },
+      },
+    ],
     'padded-blocks': [2, 'never'], // 禁止块内填充
-    'semi': [2, 'never'], // 禁止使用分号
-    'semi-spacing': [2, {
-      'before': false,
-      'after': true
-    }], // 分号前禁止空格，分号后必须有空格
+    semi: [2, 'never'], // 禁止使用分号
+    'semi-spacing': [
+      2,
+      {
+        before: false,
+        after: true,
+      },
+    ], // 分号前禁止空格，分号后必须有空格
     'space-before-blocks': [2, 'always'], // 代码块前要有空格
     // 'space-before-function-paren': [2, 'never'], // 函数参数列表前不允许有空格
     'space-in-parens': [2, 'never'], // 圆括号内不允许有空格
     'space-infix-ops': 2, // 操作符周围要有空格
-    'space-unary-ops': [2, {
-      'words': true,
-      'nonwords': false
-    }], // 一元操作符前后要有空格
-    'spaced-comment': [2, 'always', {
-      'markers': ['global', 'globals', 'eslint', 'eslint-disable', '*package', '!', ','] // 注释前要有空格
-    }],
+    'space-unary-ops': [
+      2,
+      {
+        words: true,
+        nonwords: false,
+      },
+    ], // 一元操作符前后要有空格
+    'spaced-comment': [
+      2,
+      'always',
+      {
+        markers: ['global', 'globals', 'eslint', 'eslint-disable', '*package', '!', ','], // 注释前要有空格
+      },
+    ],
     'template-curly-spacing': 'off', // 允许模板字符串中的花括号前后有空格
     'use-isnan': 2, // 禁止比较时使用 NaN，要使用 isNaN() 函数
     'valid-typeof': 2, // 强制 typeof 表达式与有效的字符串进行比较
     'wrap-iife': [2, 'any'], // 立即执行函数表达式用括号包裹
     'yield-star-spacing': [2, 'both'], // yield* 表达式中 * 前后都要有空格
-    'yoda': [2, 'never'], // 禁止尤达条件
+    yoda: [2, 'never'], // 禁止尤达条件
     'prefer-const': 2, // 要求使用 const 声明那些声明后不再被修改的变量
-    'object-curly-spacing': [2, 'always', {
-      'objectsInObjects': false // 对象字面量中的空格不允许有对象字面量
-    }],
+    'object-curly-spacing': [
+      2,
+      'always',
+      {
+        objectsInObjects: false, // 对象字面量中的空格不允许有对象字面量
+      },
+    ],
     'array-bracket-spacing': [2, 'never'], // 数组字面量中的空格不允许有空格
     'accessor-pairs': 2, // 强制 getter 和 setter 在对象中成对出现
-    'arrow-spacing': [2, {
-      'before': true,
-      'after': true
-    }], // 箭头函数的箭头前后的空格
+    'arrow-spacing': [
+      2,
+      {
+        before: true,
+        after: true,
+      },
+    ], // 箭头函数的箭头前后的空格
     'block-spacing': [2, 'always'], // 代码块花括号内的空格规则
-    'brace-style': [2, '1tbs', {
-      'allowSingleLine': true
-    }], // 大括号风格
-    'camelcase': [0, {
-      'properties': 'always'
-    }], // 强制驼峰命名规则
+    'brace-style': [
+      2,
+      '1tbs',
+      {
+        allowSingleLine: true,
+      },
+    ], // 大括号风格
+    camelcase: [
+      0,
+      {
+        properties: 'always',
+      },
+    ], // 强制驼峰命名规则
     // 'comma-dangle': [2, 'never'], // 禁止对象字面量中逗号结尾
-    'comma-spacing': [2, {
-      'before': false,
-      'after': true
-    }], // 逗号前禁止空格，逗号后必须有空格
+    'comma-spacing': [
+      2,
+      {
+        before: false,
+        after: true,
+      },
+    ], // 逗号前禁止空格，逗号后必须有空格
     'comma-style': [2, 'last'], // 逗号风格
     'constructor-super': 2, // 要求构造函数中有 super() 的调用
-    'curly': [2, 'multi-line'], // 要求 if 语句使用花括号
+    curly: [2, 'multi-line'], // 要求 if 语句使用花括号
     'dot-location': [2, 'property'], // 强制点号和属性放在同一行
     'eol-last': 2, // 要求文件末尾存在空行
-    'eqeqeq': ['error', 'always', { 'null': 'ignore' }], // 强制使用全等
-    'generator-star-spacing': [2, {
-      'before': true,
-      'after': true
-    }], // generator 函数中 * 前后的空格
+    eqeqeq: ['error', 'always', { null: 'ignore' }], // 强制使用全等
+    'generator-star-spacing': [
+      2,
+      {
+        before: true,
+        after: true,
+      },
+    ], // generator 函数中 * 前后的空格
     'handle-callback-err': [2, '^(err|error)$'], // 强制回调错误处理
-    'indent': 'off', // 缩进风格关闭，交由其他插件处理
+    indent: 'off', // 缩进风格关闭，交由其他插件处理
     'jsx-quotes': [2, 'prefer-single'], // 强制 JSX 属性值使用单引号
-    'key-spacing': [2, {
-      'beforeColon': false,
-      'afterColon': true
-    }], // 对象字面量中冒号的前后空格
-    'keyword-spacing': [2, {
-      'before': true,
-      'after': true
-    }], // 关键字前后的空格
-    'new-cap': [2, {
-      'newIsCap': true,
-      'capIsNew': false
-    }] // 构造函数首字母要大写
-  }
+    'key-spacing': [
+      2,
+      {
+        beforeColon: false,
+        afterColon: true,
+      },
+    ], // 对象字面量中冒号的前后空格
+    'keyword-spacing': [
+      2,
+      {
+        before: true,
+        after: true,
+      },
+    ], // 关键字前后的空格
+    'new-cap': [
+      2,
+      {
+        newIsCap: true,
+        capIsNew: false,
+      },
+    ], // 构造函数首字母要大写
+  },
 }
