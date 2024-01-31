@@ -1,5 +1,5 @@
 import { nextTick } from 'vue'
-import '@/styles/loading.scss'
+import '/@/styles/loading.scss'
 
 export const loading = {
   show: () => {

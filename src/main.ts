@@ -4,13 +4,13 @@ import App from './App.vue'
 // routes
 import router from './routers'
 // pinia
-import pinia from '@/stores'
+import pinia from '/@/stores'
 import mitt from 'mitt'
 import plugins from './plugins' // plugins
 import { loadLang } from './lang'
 import ElementPlus from 'element-plus'
-import { useDict } from '@/utils/dict'
-import { parseTime, resetForm, addDateRange, handleTree, selectDictLabel, selectDictLabels } from '@/utils/ruoyi'
+import { useDict } from '/@/utils/dict'
+import { parseTime, resetForm, addDateRange, handleTree, selectDictLabel, selectDictLabels } from '/@/utils/ruoyi'
 
 // vue
 const app = createApp(App)

@@ -1,6 +1,6 @@
 import type { AxiosRequestConfig, Method } from 'axios'
 import axios from 'axios'
-import { i18n } from '@/lang'
+import { i18n } from '/@/lang'
 import { ElLoading, ElNotification, type LoadingOptions } from 'element-plus'
 import { getToken } from './auth'
 window.requests = []

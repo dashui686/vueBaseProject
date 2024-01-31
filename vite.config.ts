@@ -27,7 +27,7 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
 
   const alias: Record<string, string> = {
     // eslint-disable-next-line no-undef
-    '@': resolve(__dirname, './src'),
+    '/@': resolve(__dirname, './src'),
     assets: pathResolve('./src/assets'),
     'vue-i18n': isProd(mode) ? 'vue-i18n/dist/vue-i18n.cjs.prod.js' : 'vue-i18n/dist/vue-i18n.cjs.js',
   }

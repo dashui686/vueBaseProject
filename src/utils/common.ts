@@ -1,8 +1,8 @@
 import { nextTick } from 'vue'
 import type { App } from 'vue'
 import * as elIcons from '@element-plus/icons-vue'
-import router from '@/routers'
-import Icon from '@/components/icon/index.vue'
+import router from '/@/routers'
+import Icon from '/@/components/icon/index.vue'
 import type { FormInstance } from 'element-plus'
 import { useTitle } from '@vueuse/core'
 import { i18n } from '../lang'
@@ -10,7 +10,7 @@ import { getUrl } from './axios'
 
 import { trimStart } from 'lodash-es'
 import type { TranslateOptions } from 'vue-i18n'
-import { useSiteConfig } from '@/stores/siteConfig'
+import { useSiteConfig } from '/@/stores/siteConfig'
 
 export function registerIcons(app: App) {
   /*

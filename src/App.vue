@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import { onMounted, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
-import iconfontInit from '@/utils/iconfont'
+import iconfontInit from '/@/utils/iconfont'
 import { useRoute } from 'vue-router'
-import { setTitleFromRoute } from '@/utils/common'
-import { useConfig } from '@/stores/config'
+import { setTitleFromRoute } from '/@/utils/common'
+import { useConfig } from '/@/stores/config'
 // modules import mark, Please do not remove.
 
 const config = useConfig()

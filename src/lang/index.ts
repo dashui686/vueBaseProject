@@ -1,7 +1,7 @@
 import type { App } from 'vue'
 import { createI18n } from 'vue-i18n'
 import type { I18n, Composer } from 'vue-i18n'
-import { useConfig } from '@/stores/config'
+import { useConfig } from '/@/stores/config'
 import { isEmpty } from 'lodash-es'
 
 /*

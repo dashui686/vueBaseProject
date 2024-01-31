@@ -1,7 +1,7 @@
 <script lang="ts">
 import { createVNode, resolveComponent, defineComponent, computed, type CSSProperties } from 'vue'
-import svg from '@/components/icon/svg/index.vue'
-import { isExternal } from '@/utils/common'
+import svg from '/@/components/icon/svg/index.vue'
+import { isExternal } from '/@/utils/common'
 export default defineComponent({
     name: 'Icon',
     props: {

@@ -1,5 +1,5 @@
-import useDictStore from '@/stores/modules/dict'
-import { getDicts } from '@/api/common/dict/data'
+import useDictStore from '/@/stores/modules/dict'
+import { getDicts } from '/@/api/common/dict/data'
 import { ref, toRefs } from 'vue'
 
 /**
