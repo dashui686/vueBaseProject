@@ -16,7 +16,7 @@
         "source.fixAll.eslint": true
     },
     "editor.formatOnType": true,
-    "i18n-ally.localesPaths": ["src/lang"], // 翻译文件路径 (自动生成) 相对于项目根目录的语言环境目录路径
+    "i18n-ally.localesPaths": ["src/locale"], // 翻译文件路径 (自动生成) 相对于项目根目录的语言环境目录路径
     "i18n-ally.namespace": true, 
     "i18n-ally.pathMatcher": "{locale?}/{namespaces?}.{ext}",
     // 如下须要手动配置

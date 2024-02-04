@@ -28,19 +28,23 @@ export async function loadLang(app: App) {
   const locale = config.lang.defaultLang
 
   // 加载框架全局语言包
-  const lang = await import(`./globs-${locale}.ts`)
-  const message = lang.default ?? {}
+  // const lang = await import(`./globs-${locale}.ts`)
+  // const message = lang.default ?? {}
 
   // 按需加载语言包文件的句柄
   if (locale === 'zh-cn') {
     window.loadLangHandle = {
-      ...import.meta.glob('./backend/zh-cn/**/*.ts'),
-      ...import.meta.glob('./frontend/zh-cn/**/*.ts'),
+      // 语言文件目录
+      ...import.meta.glob('./zh-cn/**/*.ts'),
+      // ...import.meta.glob('./backend/zh-cn/**/*.ts'),
+      // ...import.meta.glob('./frontend/zh-cn/**/*.ts'),
     }
   } else {
     window.loadLangHandle = {
-      ...import.meta.glob('./backend/en/**/*.ts'),
-      ...import.meta.glob('./frontend/en/**/*.ts'),
+      // 语言文件目录
+      ...import.meta.glob('./en/**/*.ts'),
+      // ...import.meta.glob('./backend/en/**/*.ts'),
+      // ...import.meta.glob('./frontend/en/**/*.ts'),
     }
   }
 
@@ -55,7 +59,7 @@ export async function loadLang(app: App) {
 
   const messages = {
     [locale]: {
-      ...message,
+      // ...message,
     },
   }
 
@@ -64,7 +68,8 @@ export async function loadLang(app: App) {
 
   i18n = createI18n({
     locale: locale,
-    legacy: false, // 组合式api
+    legacy: false, // 组合式api 解决报错
+    allowComposition: true, // 组合式api
     globalInjection: true, // 挂载$t,$d等到全局
     fallbackLocale: config.lang.fallbackLang,
     messages,

@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
+ onMounted(() => console.log(t('home.nickname')))
+</script>
 <template>
   <div>
     <a href="https://vitejs.dev" target="_blank">
@@ -7,6 +11,9 @@
     <a href="https://vuejs.org/" target="_blank">
       <img src="../assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
+    <p>
+      {{ t('home.nickname') }}
+    </p>
   </div>
   <HelloWorld msg="Vite + Vue" />
 </template>

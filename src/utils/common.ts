@@ -5,7 +5,7 @@ import router from '/@/routers'
 import Icon from '/@/components/icon/index.vue'
 import type { FormInstance } from 'element-plus'
 import { useTitle } from '@vueuse/core'
-import { i18n } from '../lang'
+import { i18n } from '../locale'
 import { getUrl } from './axios'
 
 import { trimStart } from 'lodash-es'
