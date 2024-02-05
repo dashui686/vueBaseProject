@@ -37,9 +37,12 @@ router.beforeEach((to, from, next) => {
   let loadPath: string[] = []
   const config = useConfig()
   debugger
+
   // if (to.path in langAutoLoadMap) {
   //   loadPath.push(...langAutoLoadMap[to.path as keyof typeof langAutoLoadMap])
   // }
+
+  // 此处可以自定义路径
   const prefix = './' + config.lang.defaultLang
 
   // 根据路由 name 加载的语言包
